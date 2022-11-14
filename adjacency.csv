@@ -1,0 +1,121 @@
+country_name           ,neighbor
+Belgium                ,Netherlands
+Belgium                ,Germany
+Belgium                ,Luxembourg
+Belgium                ,France
+Bulgaria               ,Greece
+Bulgaria               ,Romania
+Bulgaria               ,Turkey
+Bulgaria               ,North Macedonia    
+Bulgaria               ,Serbia
+Czechia             ,Poland
+Czechia,Germany
+Czechia,Austria
+Czechia,Slovakia
+Denmark    ,Germany
+Denmark    ,Sweden
+Germany  ,Poland
+Germany  ,Denmark
+Germany  ,Netherlands
+Germany,Belgium
+Germany  ,Luxembourg
+Germany                ,France
+Germany,Switserland
+Germany,Austria
+Germany,Czechia
+Estonia       ,Latvia
+Ireland                ,United Kingdom
+Greece                 ,Turkey
+Greece                 ,Bulgaria
+Greece                 ,North Macedonia     
+Greece                 ,Albania
+Spain                  ,Portugal
+Spain                  ,France
+France,Spain
+France,Switserland
+France,Italy
+France,Belgium
+France,Luxembourg
+France                 ,Germany
+Croatia                ,Montenegro
+Croatia                ,Hungary
+Croatia,Serbia
+Croatia                ,Slovenia
+Italy                  ,France
+Italy                  ,Switserland
+Italy                  ,Slovenia
+Italy                  ,Austria
+Latvia                 ,Estonia
+Latvia                 ,Lithuania       
+Lithuania   ,Latvia       
+Lithuania              ,Poland
+Luxembourg ,Belgium
+Luxembourg ,Germany
+Luxembourg             ,France
+Hungary  ,Romania
+Hungary  ,Slovakia
+Hungary  ,Slovenia
+Hungary  ,Austria
+Hungary,Serbia
+Hungary                ,Croatia
+Netherlands            ,Belgium
+Netherlands            ,Germany
+Austria,Liechtenstein
+Austria   ,Germany
+Austria   ,Switserland
+Austria   ,Italy
+Austria   ,Hungary
+Austria   ,Slovakia
+Austria   ,Czechia 
+Austria                ,Slovenia
+Poland    ,Germany
+Poland    ,Lithuania   
+Poland    ,Slovakia
+Poland                 ,Czechia 
+Portugal               ,Spain
+Romania  ,Bulgaria
+Romania  ,Serbia
+Romania  ,Hungary
+Slovakia,Poland
+Slovakia,Hungary
+Slovakia,Austria
+Slovakia,Czechia 
+Slovenia     ,Croatia
+Slovenia      ,Hungary
+Slovenia     ,Austria
+Slovenia               ,Italy
+Finland                ,Norway
+Finland                ,Sweden
+Sweden                 ,Finland
+Sweden                 ,Denmark
+Sweden                 ,Norway
+Liechtenstein          ,Switserland
+Liechtenstein          ,Austria
+Norway                 ,Finland
+Norway                 ,Sweden
+Switserland    ,Liechtenstein
+Switserland    ,Austria
+Switserland    ,France
+Switserland,Italy
+Switserland            ,Germany
+United Kingdom         ,Ireland
+Montenegro             ,Serbia
+Montenegro             ,Albania
+Montenegro             ,Croatia
+North Macedonia    ,Bulgaria
+North Macedonia    ,Albania
+North Macedonia    ,Serbia
+North Macedonia        ,Greece
+Albania     ,Montenegro
+Albania     ,Serbia
+Albania,Greece
+Albania                ,North Macedonia
+Serbia                 ,North Macedonia
+Serbia                 ,Bulgaria
+Serbia                 ,Romania
+Serbia                 ,Hungary
+Serbia                 ,Croatia
+Serbia                 ,Albania
+Serbia                 ,Montenegro
+Turkey                 ,Bulgaria
+Turkey                 ,Greece
