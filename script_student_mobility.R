@@ -35,7 +35,7 @@ erasmus <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/ti
 # - Are reverse flows (the flow from A to B and the flow from B to A) correlated?
 # Modeling
 # - How does total number of students from country A to country B depend on
-#       the ototal number of student from A and the total number of students from B?
+#       the total number of student from A and the total number of students from B?
 # - Do adjacent countries attract more or less students than non-adjacent countries?
 # Visualization
 # If time permits we could look at some ways of visualizing mobility data
