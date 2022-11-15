@@ -19,11 +19,14 @@ library(tidytuesdayR)
 tuesdata <- tt_load(2022, week = 10)
 erasmus <- tuesdata$erasmus
 
+# alternative::
+erasmus <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-03-08/erasmus.csv')
+
 # There are two additional 'helper' datafiles that I will use in the workshop:
 # country_names.csv     : The full names and EU-status of the countries
 # adjacency.csv         : Which pairs of countries are adjacent (share borders)
 
-# I will address some of the follwing questions
+# I will address some of the following questions
 # Descriptive
 # - How many students studied abroad? 
 # - What are the top-10 receiving countries?
