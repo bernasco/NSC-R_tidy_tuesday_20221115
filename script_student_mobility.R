@@ -216,7 +216,9 @@ possible_mobility_names <-
   full_join(country_labels, country_labels,
             by = as.character()) |>
   select(sending_country_name   = country_name.x,
-         receiving_country_name = country_name.y) |>
+         receiving_country_name = country_name.y,
+         sending_country_code   = country_code.x,
+         receiving_country_code = country_code.y) |>
   filter(sending_country_name != receiving_country_name)
 
 # Erasmus student mobility flows including zero flows
@@ -241,7 +243,7 @@ flows_erasmus_full_zeros |>
 # Histogram of this distribution
 flows_erasmus_full_zeros |>
   ggplot() +
-  geom_histogram(aes(x=exchanges))
+  geom_histogram(aes(x=exchanges), binwidth = 5)
 
 
 reverse_flows_erasmus_full_zeros <-
@@ -303,28 +305,64 @@ tidy(model_02)
 glance(model_02)
 # Students appear to fancy visiting nearby countries abroad!
 
+
+
+# Visualization 1: Chord diagram
+
 library(circlize)
 # Full country names
 flows_erasmus_full_zeros |> 
-  filter(exchanges > 50) |>
+  filter(exchanges > 0) |>
   arrange(-exchanges) |> 
-  mutate(sending_country_name = substr(sending_country_name, 1,4),
-         receiving_country_name = substr(receiving_country_name, 1,4)) |>
+  chordDiagram()
+
+# Use the 2-letter abbreviations here
+flows_erasmus_full_zeros |> 
+  filter(exchanges > 0) |>
+  arrange(-exchanges) |> 
+  # without ungroup() the .._country_name columns will
+  # be retained
+  ungroup() |>
+  select(sending_country_code, receiving_country_code,
+         exchanges) |>
+  chordDiagram()
+
+# Only flows over 100
+flows_erasmus_full_zeros |> 
+  filter(exchanges > 100) |>
+  arrange(-exchanges) |> 
+  ungroup() |>
+  select(sending_country_code, receiving_country_code,
+         exchanges) |>
   chordDiagram()
 
 
-# prepare colour scale
-ColourScal ='d3.scaleOrdinal() .range(["#FDE725FF","#B4DE2CFF","#6DCD59FF","#35B779FF","#1F9E89FF","#26828EFF","#31688EFF","#3E4A89FF","#482878FF","#440154FF"])'
+# Visulaization 2: Network representation
+#   We can also represent the countries as nodes in a network,
+#   with the student flows representing the links between them
 
-# Make the Network
+library(igraph)
 
-sankeyNetwork(Links = flows_erasmus_full_zeros,
-              Nodes = country_labels,
-              Source = "sending_country_name", 
-              Target = "receiving_country_name",
-              Value = "exchanges", 
-              NodeID = "country_name", 
-              sinksRight=FALSE, colourScale=ColourScal, 
-              nodeWidth=40, fontSize=13, nodePadding=20)
+flows_erasmus_full_zeros |>
+  filter(exchanges > 100) |>
+  graph_from_data_frame(directed = TRUE, 
+                      vertices=country_labels) |>
+  plot(vertex.size=5)
+
+# no isolates
+flows_erasmus_full_zeros |>
+  filter(exchanges > 75) |>
+  graph_from_data_frame(directed = TRUE) |>
+  plot(vertex.size=5)
+
+flows_erasmus_full_zeros |>
+  filter(exchanges > 100) |>
+  graph_from_data_frame(directed = TRUE) |>
+  plot(vertex.size=5)
 
 
+# For alternative methods of visualizing mobility while
+# maintaining the geographic relations, see Andrew
+# Wheeler's 2015 paper in Cartography and Geographic 
+# Information Science, at (behind paywall)
+# https://doi.org/10.1080/15230406.2014.890545
